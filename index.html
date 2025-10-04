@@ -522,13 +522,13 @@
     <!-- Navigation -->
     <div class="container">
         <div class="nav-container">
-            <button class="nav-btn active" data-page="home-page">
+            <button class="nav-btn active" onclick="showPage('home-page')">
                 <i class="fas fa-home"></i> Home
             </button>
-            <button class="nav-btn" data-page="freefire-page">
+            <button class="nav-btn" onclick="showPage('freefire-page')">
                 <i class="fas fa-fire"></i> Free Fire MAX
             </button>
-            <button class="nav-btn" data-page="bgmi-page">
+            <button class="nav-btn" onclick="showPage('bgmi-page')">
                 <i class="fas fa-crosshairs"></i> BGMI
             </button>
         </div>
@@ -614,7 +614,7 @@
                             <span>24 Players</span>
                         </div>
                     </div>
-                    <button class="join-btn" data-game="freefire" data-tier="50">Join Tournament</button>
+                    <button class="join-btn" onclick="joinTournament('Free Fire MAX', 50)">Join Tournament</button>
                 </div>
                 
                 <!-- ₹100 Tournament -->
@@ -622,4 +622,4 @@
                     <div class="tournament-price">₹100</div>
                     <h3 class="tournament-name">Pro Level</h3>
                     <div class="tournament-details">
-                        <div class="detail
+  
