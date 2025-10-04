@@ -522,13 +522,13 @@
     <!-- Navigation -->
     <div class="container">
         <div class="nav-container">
-            <button class="nav-btn active" onclick="showPage('home-page')">
+            <button class="nav-btn active" onclick="showHome()">
                 <i class="fas fa-home"></i> Home
             </button>
-            <button class="nav-btn" onclick="showPage('freefire-page')">
+            <button class="nav-btn" onclick="showFreeFire()">
                 <i class="fas fa-fire"></i> Free Fire MAX
             </button>
-            <button class="nav-btn" onclick="showPage('bgmi-page')">
+            <button class="nav-btn" onclick="showBGMI()">
                 <i class="fas fa-crosshairs"></i> BGMI
             </button>
         </div>
@@ -611,10 +611,10 @@
                         </div>
                         <div class="detail-item">
                             <span>Daily Slots:</span>
-                            <span>24 Players</span>
+                            <span>50 Players</span>
                         </div>
                     </div>
-                    <button class="join-btn" onclick="joinTournament('Free Fire MAX', 50)">Join Tournament</button>
+                    <button class="join-btn" onclick="joinFreeFire(50)">Join Tournament</button>
                 </div>
                 
                 <!-- ₹100 Tournament -->
@@ -622,4 +622,334 @@
                     <div class="tournament-price">₹100</div>
                     <h3 class="tournament-name">Pro Level</h3>
                     <div class="tournament-details">
-  
+                        <div class="detail-item">
+        <span>Per Kill Reward:</span>
+                            <span>₹25</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Time Slot:</span>
+                            <span>7-9 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Daily Slots:</span>
+                            <span>48 Players</span>
+                        </div>
+                    </div>
+                    <div class="prize-highlight">Better Rewards & Competition!</div>
+                    <button class="join-btn" onclick="joinFreeFire(100)">Join Tournament</button>
+                </div>
+                
+                <!-- ₹200 Tournament -->
+                <div class="tournament-card premium">
+                    <div class="badge premium">PREMIUM</div>
+                    <div class="tournament-price">₹200</div>
+                    <h3 class="tournament-name">Premium Tier</h3>
+                    <div class="tournament-details">
+                        <div class="detail-item">
+                            <span>Rooms Available:</span>
+                            <span>4 Rooms</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Per Kill Reward:</span>
+                            <span>₹50</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Time Slot:</span>
+                            <span>7-9 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Daily Slots:</span>
+                            <span>48 Players</span>
+                        </div>
+                    </div>
+                    <div class="motivational-text">Prove you're among the elite</div>
+                    <div class="prize-highlight">Double the Rewards & Prestige!</div>
+                    <button class="join-btn" onclick="joinFreeFire(200)">Join Tournament</button>
+                </div>
+                
+                <!-- ₹500 Tournament -->
+                <div class="tournament-card elite">
+                    <div class="badge elite">ELITE</div>
+                    <div class="tournament-price">₹500</div>
+                    <h3 class="tournament-name">Elite Tier</h3>
+                    <div class="tournament-details">
+                        <div class="detail-item">
+                            <span>Rooms Available:</span>
+                            <span>2 Rooms</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Per Kill Reward:</span>
+                            <span>₹100</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Time Slot:</span>
+                            <span>7-9 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Daily Slots:</span>
+                            <span>24 Players</span>
+                        </div>
+                    </div>
+                    <div class="motivational-text">Where legends are born</div>
+                    <div class="prize-highlight">Maximum Rewards & Eternal Glory!</div>
+                    <button class="join-btn" onclick="joinFreeFire(500)">Join Tournament</button>
+                </div>
+            </div>
+            
+            <div class="motivation-section">
+                <h2 class="motivation-title">Why Play Premium Free Fire Tournaments?</h2>
+                <div class="motivation-content">
+                    <p>Premium tournaments aren't just about higher rewards - they're about testing your skills against the best players, earning respect in the gaming community, and proving you have what it takes to compete at the highest level.</p>
+                    <p>Every champion started somewhere, but true legends are forged in the fires of elite competition. The ₹500 Elite Tier isn't just a tournament - it's a proving ground for the next generation of esports stars.</p>
+                    <p><strong>Dominate the battlefield. Claim your throne.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- BGMI Tournaments Page -->
+    <div class="page" id="bgmi-page">
+        <div class="container">
+            <h2 class="section-title">BGMI Tournaments</h2>
+            <p class="motivational-text">Coming Soon! Prepare for the ultimate battleground experience.</p>
+            
+            <div class="tournament-grid">
+                <!-- ₹100 Tournament -->
+                <div class="tournament-card">
+                    <div
+class="tournament-price">₹100</div>
+                    <h3 class="tournament-name">Starter Tier</h3>
+                    <div class="tournament-details">
+                        <div class="detail-item">
+                            <span>Rooms Available:</span>
+                            <span>4 Rooms</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Per Kill Reward:</span>
+                            <span>₹25</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Launch Date:</span>
+                            <span>Coming Soon</span>
+                        </div>
+                    </div>
+                    <button class="join-btn" onclick="comingSoon()">Coming Soon</button>
+                </div>
+                
+                <!-- ₹200 Tournament -->
+                <div class="tournament-card">
+                    <div class="tournament-price">₹200</div>
+                    <h3 class="tournament-name">Advanced Tier</h3>
+                    <div class="tournament-details">
+                        <div class="detail-item">
+                            <span>Rooms Available:</span>
+                            <span>4 Rooms</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Per Kill Reward:</span>
+                            <span>₹50</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Launch Date:</span>
+                            <span>Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="prize-highlight">Better Competition & Rewards!</div>
+                    <button class="join-btn" onclick="comingSoon()">Coming Soon</button>
+                </div>
+                
+                <!-- ₹500 Tournament -->
+                <div class="tournament-card premium">
+                    <div class="badge premium">PREMIUM</div>
+                    <div class="tournament-price">₹500</div>
+                    <h3 class="tournament-name">Pro Tier</h3>
+                    <div class="tournament-details">
+                        <div class="detail-item">
+                            <span>Rooms Available:</span>
+                            <span>2 Rooms</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Per Kill Reward:</span>
+                            <span>₹150</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Launch Date:</span>
+                            <span>Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="motivational-text">Challenge the best players</div>
+                    <div class="prize-highlight">Triple Rewards & Elite Status!</div>
+                    <button class="join-btn" onclick="comingSoon()">Coming Soon</button>
+                </div>
+                
+                <!-- ₹1000 Tournament -->
+                <div class="tournament-card elite">
+                    <div class="badge elite">ELITE</div>
+                    <div class="tournament-price">₹1000</div>
+                    <h3 class="tournament-name">Elite Tier</h3>
+                    <div class="tournament-details">
+                        <div class="detail-item">
+                            <span>Rooms Available:</span>
+                            <span>2 Rooms</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Per Kill Reward:</span>
+                            <span>₹300</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Launch Date:</span>
+                            <span>Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="motivational-text">The ultimate test of skill</div>
+                    <div class="prize-highlight">Maximum Prestige & Legendary Rewards!</div>
+                    <button class="join-btn" onclick="comingSoon()">Coming Soon</button>
+                </div>
+            </div>
+     <div class="motivation-section">
+                <h2 class="motivation-title">Why Play Premium BGMI Tournaments?</h2>
+                <div class="motivation-content">
+                    <p>BGMI premium tournaments are where true champions are made. With higher stakes comes greater glory, better competition, and the chance to prove yourself against the best players in the battleground.</p>
+                    <p>The ₹1000 Elite Tier isn't just about the money - it's about earning your place among the legends of BGMI. When we launch, this will be the tournament that separates the pros from the amateurs.</p>
+                    <p><strong>Coming soon - Prepare for glory!</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Elite eSports &copy; 2023 | Where Champions Compete</p>
+            <p>Custom Room IDs and passwords provided after registration | Daily tournaments 7-9 PM</p>
+            <p>BGMI Tournaments launching 2-3 days after Free Fire MAX</p>
+            
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // SIMPLE DIRECT FUNCTIONS - NO COMPLEXITY
+        
+        // Page Navigation Functions
+        function showHome() {
+            document.getElementById('home-page').classList.add('active');
+            document.getElementById('freefire-page').classList.remove('active');
+            document.getElementById('bgmi-page').classList.remove('active');
+            
+            // Update button states
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        
+        function showFreeFire() {
+            document.getElementById('freefire-page').classList.add('active');
+            document.getElementById('home-page').classList.remove('active');
+            document.getElementById('bgmi-page').classList.remove('active');
+            
+            // Update button states
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        
+        function showBGMI() {
+            document.getElementById('bgmi-page').classList.add('active');
+            document.getElementById('home-page').classList.remove('active');
+            document.getElementById('freefire-page').classList.remove('active');
+            
+            // Update button states
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        
+        // Tournament Join Functions
+        function joinFreeFire(price) {
+            let killReward = getKillReward(price);
+            let message = `🎮 JOINING FREE FIRE TOURNAMENT!\n\n`;
+            message += `💰 Entry Fee: ₹${price}\n`;
+            message += `🔫 Per Kill: ₹${killReward}\n`;
+            message += `⏰ Time: 7-9 PM Daily\n`;
+            message += `🎯 Rooms: ${getRoomCount(price)}\n\n`;
+            message += `✅ Room ID & Password will be sent to your WhatsApp\n\n`;
+            message += `🔥 GET READY TO DOMINATE!`;
+            
+            alert(message);
+
+        // Premium motivation
+            if (price >= 200) {
+                setTimeout(() => {
+                    alert("🚀 ELITE CHOICE! Premium tournaments = Premium rewards!\n\n⭐ You're playing where champions compete!");
+                }, 800);
+            }
+        }
+        
+        function getKillReward(price) {
+            if (price === 50) return 10;
+            if (price === 100) return 25;
+            if (price === 200) return 50;
+            if (price === 500) return 100;
+            return 25;
+        }
+        
+        function getRoomCount(price) {
+            if (price === 50) return "2 Rooms (24 players)";
+            if (price === 100) return "4 Rooms (48 players)";
+            if (price === 200) return "4 Rooms (48 players)";
+            if (price === 500) return "2 Rooms (24 players)";
+            return "Multiple Rooms";
+        }
+        
+        function comingSoon() {
+            alert("🎯 BGMI TOURNAMENTS COMING SOON!\n\n🚀 Launching in 2-3 days\n⭐ Premium tournaments from ₹100 to ₹1000\n💰 Up to ₹300 per kill\n\nStay tuned for battleground dominance!");
+        }
+        
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const target = new Date();
+            
+            target.setHours(19, 0, 0, 0);
+            if (now > target) target.setDate(target.getDate() + 1);
+            
+            const diff = target - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown-timer').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+   // Motivational Messages
+        const motivationalMessages = [
+            "🔥 92% of premium players report higher satisfaction!",
+            "💎 Elite tournaments = Elite recognition",
+            "🚀 Premium tiers attract championship-level talent",
+            "⭐ Your legacy starts in ₹500 tournaments",
+            "🏆 Champions choose challenges, not comfort zones"
+        ];
+        
+        function changeMotivationalText() {
+            const elements = document.querySelectorAll('.motivational-text');
+            const randomMessage = motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)];
+            elements.forEach(element => {
+                element.textContent = randomMessage;
+            });
+        }
+        
+        // Initialize everything when page loads
+        window.onload = function() {
+            console.log("🎮 ELITE ESPORTS WEBSITE LOADED - ALL SYSTEMS GO!");
+            setInterval(updateCountdown, 1000);
+            setInterval(changeMotivationalText, 8000);
+            updateCountdown();
+        };
+    </script>
+</body>
+</html>
+```
+    
