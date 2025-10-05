@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -432,6 +433,66 @@
         .motivation-content p {
             margin-bottom: 20px;
         }
+
+        /* Registration Form Styles */
+        .registration-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--accent);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--success), var(--accent));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 201, 255, 0.4);
+        }
+
+        .room-instructions {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid var(--warning);
+        }
         
         /* Footer Styles */
         footer {
@@ -584,12 +645,18 @@
             </div>
         </div>
     </div>
-    
-    <!-- Free Fire Tournaments Page -->
+  <!-- Free Fire Tournaments Page -->
     <div class="page" id="freefire-page">
         <div class="container">
             <h2 class="section-title">Free Fire MAX Tournaments</h2>
             <p class="motivational-text">Step up your game! Higher stakes mean greater rewards and eternal glory.</p>
+
+            <!-- Registration Instructions -->
+            <div class="room-instructions">
+                <h3><i class="fas fa-info-circle"></i> How It Works:</h3>
+                <p><strong>MANUAL ROOM MANAGEMENT:</strong> We create custom rooms in Free Fire and provide unique Room ID & Password for each tournament tier.</p>
+                <p>✅ Register below → Make payment → Receive Room Details on WhatsApp → Join & Compete!</p>
+            </div>
             
             <div class="tournament-grid">
                 <!-- ₹50 Tournament -->
@@ -598,7 +665,7 @@
                     <h3 class="tournament-name">Entry Level</h3>
                     <div class="tournament-details">
                         <div class="detail-item">
-                            <span>Rooms Available:</span>
+                            <span>Custom Rooms:</span>
                             <span>2 Rooms</span>
                         </div>
                         <div class="detail-item">
@@ -611,10 +678,10 @@
                         </div>
                         <div class="detail-item">
                             <span>Daily Slots:</span>
-                            <span>50 Players</span>
+                            <span>24 Players</span>
                         </div>
                     </div>
-                    <button class="join-btn" onclick="joinFreeFire(50)">Join Tournament</button>
+                    <button class="join-btn" onclick="registerForTournament(50)">Register Now</button>
                 </div>
                 
                 <!-- ₹100 Tournament -->
@@ -623,7 +690,11 @@
                     <h3 class="tournament-name">Pro Level</h3>
                     <div class="tournament-details">
                         <div class="detail-item">
-        <span>Per Kill Reward:</span>
+                            <span>Custom Rooms:</span>
+                            <span>4 Rooms</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Per Kill Reward:</span>
                             <span>₹25</span>
                         </div>
                         <div class="detail-item">
@@ -636,7 +707,7 @@
                         </div>
                     </div>
                     <div class="prize-highlight">Better Rewards & Competition!</div>
-                    <button class="join-btn" onclick="joinFreeFire(100)">Join Tournament</button>
+                    <button class="join-btn" onclick="registerForTournament(100)">Register Now</button>
                 </div>
                 
                 <!-- ₹200 Tournament -->
@@ -646,7 +717,7 @@
                     <h3 class="tournament-name">Premium Tier</h3>
                     <div class="tournament-details">
                         <div class="detail-item">
-                            <span>Rooms Available:</span>
+                            <span>Custom Rooms:</span>
                             <span>4 Rooms</span>
                         </div>
                         <div class="detail-item">
@@ -664,7 +735,7 @@
                     </div>
                     <div class="motivational-text">Prove you're among the elite</div>
                     <div class="prize-highlight">Double the Rewards & Prestige!</div>
-                    <button class="join-btn" onclick="joinFreeFire(200)">Join Tournament</button>
+                    <button class="join-btn" onclick="registerForTournament(200)">Register Now</button>
                 </div>
                 
                 <!-- ₹500 Tournament -->
@@ -674,7 +745,7 @@
                     <h3 class="tournament-name">Elite Tier</h3>
                     <div class="tournament-details">
                         <div class="detail-item">
-                            <span>Rooms Available:</span>
+                            <span>Custom Rooms:</span>
                             <span>2 Rooms</span>
                         </div>
                         <div class="detail-item">
@@ -692,8 +763,44 @@
                     </div>
                     <div class="motivational-text">Where legends are born</div>
                     <div class="prize-highlight">Maximum Rewards & Eternal Glory!</div>
-                    <button class="join-btn" onclick="joinFreeFire(500)">Join Tournament</button>
+                    <button class="join-btn" onclick="registerForTournament(500)">Register Now</button>
                 </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="registration-form">
+                <h3><i class="fas fa-user-plus"></i> Player Registration</h3>
+                <form id="tournament-registration" onsubmit="submitRegistration(event)">
+                    <div class="form-group">
+                        <label for="playerName">Player Name (In-Game)</label>
+                        <input type="text" id="playerName" placeholder="Enter your Free Fire player name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="playerId">Free Fire ID</label>
+                        <input type="text" id="playerId" placeholder="Enter your Free Fire ID" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="whatsappNumber">WhatsApp Number</label>
+                        <input type="tel" id="whatsappNumber" placeholder="Enter your WhatsApp number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tournamentTier">Select Tournament Tier</label>
+                        <select id="tournamentTier" required>
+                            <option value="">Choose your level</option>
+                            <option value="50">₹50 - Entry Level (₹10/kill)</option>
+                            <option value="100">₹100 - Pro Level (₹25/kill)</option>
+                            <option value="200">₹200 - Premium Tier (₹50/kill)</option>
+                            <option value="500">₹500 - Elite Tier (₹100/kill)</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Register & Get Payment Details
+                    </button>
+                </form>
             </div>
             
             <div class="motivation-section">
@@ -706,8 +813,7 @@
             </div>
         </div>
     </div>
-    
-    <!-- BGMI Tournaments Page -->
+  <!-- BGMI Tournaments Page -->
     <div class="page" id="bgmi-page">
         <div class="container">
             <h2 class="section-title">BGMI Tournaments</h2>
@@ -716,12 +822,11 @@
             <div class="tournament-grid">
                 <!-- ₹100 Tournament -->
                 <div class="tournament-card">
-                    <div
-class="tournament-price">₹100</div>
+                    <div class="tournament-price">₹100</div>
                     <h3 class="tournament-name">Starter Tier</h3>
                     <div class="tournament-details">
                         <div class="detail-item">
-                            <span>Rooms Available:</span>
+                            <span>Custom Rooms:</span>
                             <span>4 Rooms</span>
                         </div>
                         <div class="detail-item">
@@ -742,7 +847,7 @@ class="tournament-price">₹100</div>
                     <h3 class="tournament-name">Advanced Tier</h3>
                     <div class="tournament-details">
                         <div class="detail-item">
-                            <span>Rooms Available:</span>
+                            <span>Custom Rooms:</span>
                             <span>4 Rooms</span>
                         </div>
                         <div class="detail-item">
@@ -765,7 +870,7 @@ class="tournament-price">₹100</div>
                     <h3 class="tournament-name">Pro Tier</h3>
                     <div class="tournament-details">
                         <div class="detail-item">
-                            <span>Rooms Available:</span>
+                            <span>Custom Rooms:</span>
                             <span>2 Rooms</span>
                         </div>
                         <div class="detail-item">
@@ -789,7 +894,7 @@ class="tournament-price">₹100</div>
                     <h3 class="tournament-name">Elite Tier</h3>
                     <div class="tournament-details">
                         <div class="detail-item">
-                            <span>Rooms Available:</span>
+                            <span>Custom Rooms:</span>
                             <span>2 Rooms</span>
                         </div>
                         <div class="detail-item">
@@ -806,7 +911,8 @@ class="tournament-price">₹100</div>
                     <button class="join-btn" onclick="comingSoon()">Coming Soon</button>
                 </div>
             </div>
-     <div class="motivation-section">
+            
+            <div class="motivation-section">
                 <h2 class="motivation-title">Why Play Premium BGMI Tournaments?</h2>
                 <div class="motivation-content">
                     <p>BGMI premium tournaments are where true champions are made. With higher stakes comes greater glory, better competition, and the chance to prove yourself against the best players in the battleground.</p>
@@ -816,8 +922,7 @@ class="tournament-price">₹100</div>
             </div>
         </div>
     </div>
-    
-    <!-- Footer -->
+  <!-- Footer -->
     <footer>
         <div class="container">
             <p>Elite eSports &copy; 2023 | Where Champions Compete</p>
@@ -867,41 +972,61 @@ class="tournament-price">₹100</div>
             event.target.classList.add('active');
         }
         
-        // Tournament Join Functions
-        function joinFreeFire(price) {
-            let killReward = getKillReward(price);
-            let message = `🎮 JOINING FREE FIRE TOURNAMENT!\n\n`;
-            message += `💰 Entry Fee: ₹${price}\n`;
-            message += `🔫 Per Kill: ₹${killReward}\n`;
-            message += `⏰ Time: 7-9 PM Daily\n`;
-            message += `🎯 Rooms: ${getRoomCount(price)}\n\n`;
-            message += `✅ Room ID & Password will be sent to your WhatsApp\n\n`;
-            message += `🔥 GET READY TO DOMINATE!`;
+        // Tournament Registration Functions
+        function registerForTournament(price) {
+            // Auto-fill the tier in registration form
+            document.getElementById('tournamentTier').value = price;
+            
+            // Scroll to registration form
+            document.getElementById('tournament-registration').scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            alert(`🎮 SELECTED: ₹${price} TOURNAMENT\n\nPlease complete the registration form below to receive your custom room details!`);
+        }
+        
+        function submitRegistration(event) {
+            event.preventDefault();
+            
+            const playerName = document.getElementById('playerName').value;
+            const playerId = document.getElementById('playerId').value;
+            const whatsappNumber = document.getElementById('whatsappNumber').value;
+            const tournamentTier = document.getElementById('tournamentTier').value;
+            
+            const tierInfo = {
+                '50': { name: 'Entry Level', killReward: 10, rooms: 2 },
+                '100': { name: 'Pro Level', killReward: 25, rooms: 4 },
+                '200': { name: 'Premium Tier', killReward: 50, rooms: 4 },
+                '500': { name: 'Elite Tier', killReward: 100, rooms: 2 }
+            };
+            
+            const tier = tierInfo[tournamentTier];
+            
+            let message = `🎮 REGISTRATION SUCCESSFUL!\n\n`;
+            message += `👤 Player: ${playerName}\n`;
+            message += `🆔 Free Fire ID: ${playerId}\n`;
+            message += `📞 WhatsApp: ${whatsappNumber}\n`;
+            message += `💰 Tournament: ₹${tournamentTier} - ${tier.name}\n`;
+            message += `🔫 Per Kill: ₹${tier.killReward}\n\n`;
+            message += `✅ NEXT STEPS:\n`;
+            message += `1. Make payment of ₹${tournamentTier} via PhonePe/GPay\n`;
+            message += `2. Send payment screenshot to our WhatsApp\n`;
+            message += `3. Receive Custom Room ID & Password\n`;
+            message += `4. Join tournament at 7 PM\n\n`;
+            message += `📱 Contact: +91 YOUR_ADMIN_NUMBER\n\n`;
+            message += `🔥 See you in the battleground!`;
             
             alert(message);
-
-        // Premium motivation
-            if (price >= 200) {
+            
+            // Reset form
+            document.getElementById('tournament-registration').reset();
+            
+            // Premium motivation
+            if (tournamentTier >= 200) {
                 setTimeout(() => {
-                    alert("🚀 ELITE CHOICE! Premium tournaments = Premium rewards!\n\n⭐ You're playing where champions compete!");
-                }, 800);
+                    alert("🚀 ELITE CHOICE! You're joining where champions compete!\n\n⭐ Premium benefits await you!");
+                }, 1000);
             }
-        }
-        
-        function getKillReward(price) {
-            if (price === 50) return 10;
-            if (price === 100) return 25;
-            if (price === 200) return 50;
-            if (price === 500) return 100;
-            return 25;
-        }
-        
-        function getRoomCount(price) {
-            if (price === 50) return "2 Rooms (24 players)";
-            if (price === 100) return "4 Rooms (48 players)";
-            if (price === 200) return "4 Rooms (48 players)";
-            if (price === 500) return "2 Rooms (24 players)";
-            return "Multiple Rooms";
         }
         
         function comingSoon() {
@@ -924,7 +1049,7 @@ class="tournament-price">₹100</div>
             document.getElementById('countdown-timer').textContent = 
                 `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
-   // Motivational Messages
+             // Motivational Messages
         const motivationalMessages = [
             "🔥 92% of premium players report higher satisfaction!",
             "💎 Elite tournaments = Elite recognition",
@@ -952,4 +1077,3 @@ class="tournament-price">₹100</div>
 </body>
 </html>
 ```
-    
