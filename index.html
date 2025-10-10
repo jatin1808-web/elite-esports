@@ -2286,3 +2286,188 @@ showAdminPanel = function() {
 };
 
 console.log('Elite eSports Enhanced System Initialized! 🎮');
+        // Final system initialization and utility functions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize any DOM-dependent functionality
+            console.log('DOM fully loaded and parsed');
+            
+            // Add keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                // Ctrl + D for dashboard (admin only)
+                if (e.ctrlKey && e.key === 'd' && userRole === 'admin') {
+                    e.preventDefault();
+                    showAdminSection('dashboard');
+                }
+                
+                // Ctrl + R for refresh rooms
+                if (e.ctrlKey && e.key === 'r') {
+                    e.preventDefault();
+                    if (document.getElementById('freefire-rooms')) {
+                        loadRoomsForPlayers();
+                    }
+                }
+            });
+            
+            // Add service worker for PWA capabilities (optional)
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('SW registered: ', registration);
+                }).catch(function(registrationError) {
+                    console.log('SW registration failed: ', registrationError);
+                });
+            }
+            
+            // Add offline detection
+            window.addEventListener('online', function() {
+                showNotification('Connection restored', 'success');
+                if (document.getElementById('freefire-rooms')) {
+                    loadRoomsForPlayers();
+                }
+            });
+            
+            window.addEventListener('offline', function() {
+                showNotification('You are currently offline', 'warning');
+            });
+        });
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                background: ${type === 'success' ? 'var(--accent)' : type === 'warning' ? 'var(--warning)' : 'var(--secondary)'};
+                color: white;
+                border-radius: 8px;
+                z-index: 10000;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 5000);
+        }
+
+        // Enhanced error handling
+        window.addEventListener('error', function(e) {
+            console.error('Global error:', e.error);
+            showNotification('An error occurred. Please refresh the page.', 'warning');
+        });
+
+        // Performance monitoring
+        let performanceMetrics = {
+            pageLoadTime: Date.now() - performance.timing.navigationStart,
+            roomsLoaded: 0,
+            errors: 0
+        };
+
+        // Track room load performance
+        const originalLoadRoomsForPlayers = loadRoomsForPlayers;
+        loadRoomsForPlayers = async function() {
+            const startTime = Date.now();
+            try {
+                await originalLoadRoomsForPlayers();
+                const loadTime = Date.now() - startTime;
+                performanceMetrics.roomsLoaded++;
+                console.log(`Rooms loaded in ${loadTime}ms`);
+            } catch (error) {
+                performanceMetrics.errors++;
+                throw error;
+            }
+        };
+
+        // System information function
+        function getSystemInfo() {
+            return {
+                userRole: userRole,
+                firebaseConnected: !!auth.currentUser,
+                roomsLoaded: performanceMetrics.roomsLoaded,
+                performance: performanceMetrics,
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        // Debug function (only in development)
+        function debugSystem() {
+            if (userRole === 'admin') {
+                console.log('=== SYSTEM DEBUG INFO ===');
+                console.log('User:', currentUser?.email);
+                console.log('Role:', userRole);
+                console.log('Firebase:', auth.currentUser ? 'Connected' : 'Disconnected');
+                console.log('Performance:', performanceMetrics);
+                console.log('========================');
+                
+                // Show debug panel
+                const debugInfo = getSystemInfo();
+                alert(`System Debug Info:\n\n${JSON.stringify(debugInfo, null, 2)}`);
+            }
+        }
+
+        // Add debug shortcut (Ctrl+Shift+D)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.key === 'D') {
+                e.preventDefault();
+                debugSystem();
+            }
+        });
+
+        // Auto-refresh rooms every 30 seconds
+        setInterval(() => {
+            if (document.getElementById('freefire-rooms') && 
+                document.getElementById('freefire').classList.contains('active')) {
+                loadRoomsForPlayers();
+            }
+        }, 30000);
+
+        // Export functions to global scope for debugging
+        window.eliteEsports = {
+            debugSystem,
+            getSystemInfo,
+            loadRoomsForPlayers,
+            loadAdminRooms,
+            showNotification,
+            getTierName,
+            getKillReward
+        };
+
+        // Final initialization message
+        console.log(`
+╔═══════════════════════════════════════════════╗
+║            ELITE ESPORTS SYSTEM               ║
+║              🎮 INITIALIZED 🎮                ║
+║                                               ║
+║   Features:                                   ║
+║   • Real-time Room Management                 ║
+║   • Tier-based Tournament System              ║
+║   • Admin & Employee Panels                   ║
+║   • Firebase Authentication                   ║
+║   • Responsive Design                         ║
+║   • Bulk Operations                           ║
+║   • Analytics & Dashboard                     ║
+║                                               ║
+║   Ready for tournament action! 🏆            ║
+╚═══════════════════════════════════════════════╝
+        `);
+
+        // Initialize the system
+        showLogin();
+    </script>
+</body>
+</html>
