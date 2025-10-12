@@ -1,4 +1,4 @@
-// 🔥 Firebase Configuration - UPDATED WITH YOUR CREDENTIALS
+// Firebase Configuration
 const firebaseConfig = {
     apiKey: "AIzaSyCyQhuhHfY_eDTxaRslWmB-1nkATvf7qfg",
     authDomain: "elite-esports-846904616419.firebaseapp.com",
@@ -9,15 +9,19 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-let auth, db;
 try {
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
     }
-    auth = firebase.auth();
-    db = firebase.firestore();
-    console.log("Firebase initialized successfully!");
+    console.log("Firebase initialized successfully");
 } catch (error) {
     console.error("Firebase initialization error:", error);
-    alert("Firebase configuration error: " + error.message);
 }
+
+// Firebase instances
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// Export for use in other files
+window.auth = auth;
+window.db = db;
