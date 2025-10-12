@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Elite eSports</title>
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-logo">ELITE ESPORTS</div>
+            
+            <!-- Login Form -->
+            <div class="auth-form active" id="login-form">
+                <h2 class="auth-title">Player Login</h2>
+                <p class="auth-subtitle">Enter the battleground</p>
+                
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password">
+                </div>
+                
+                <button class="auth-btn" id="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                
+                <button class="auth-btn google-btn" id="google-login-btn">
+                    <i class="fab fa-google"></i> Continue with Google
+                </button>
+
+                <button class="auth-btn admin-btn" id="admin-login-btn">
+                    <i class="fas fa-users-cog"></i> Admin Login
+                </button>
+                
+                <div class="switch-auth">
+                    Don't have an account? <a href="#" id="show-signup">Sign up</a>
+                </div>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="auth-form" id="signup-form">
+                <h2 class="auth-title">Create Account</h2>
+                <p class="auth-subtitle">Start your journey</p>
+                
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-gameid">Game ID</label>
+                    <input type="text" id="signup-gameid" placeholder="Your in-game ID">
+                </div>
+                
+                <button class="auth-btn" id="signup-btn">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+                
+                <button class="auth-btn google-btn" id="google-signup-btn">
+                    <i class="fab fa-google"></i> Sign up with Google
+                </button>
+                
+                <div class="switch-auth">
+                    Already have an account? <a href="#" id="show-login">Login</a>
+                </div>
+            </div>
+
+            <!-- Admin Login Form -->
+            <div class="auth-form" id="admin-form">
+                <h2 class="auth-title">Admin Login</h2>
+                <p class="auth-subtitle">Management Panel</p>
+                
+                <div class="form-group">
+                    <label for="admin-email">Admin Email</label>
+                    <input type="email" id="admin-email" placeholder="Admin email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="admin-password">Admin Password</label>
+                    <input type="password" id="admin-password" placeholder="Admin password">
+                </div>
+                
+                <button class="auth-btn admin-btn" id="admin-login-submit">
+                    <i class="fas fa-unlock"></i> Admin Login
+                </button>
+                
+                <button class="auth-btn" id="back-to-login">
+                    <i class="fas fa-arrow-left"></i> Back to Player Login
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
