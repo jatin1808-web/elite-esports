@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Elite eSports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">ELITE ESPORTS - ADMIN</div>
+                <div class="nav-links">
+                    <div class="user-info">
+                        <div class="user-avatar" id="admin-avatar">A</div>
+                        <span id="admin-greeting">Admin Panel</span>
+                        <button class="logout-btn" id="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="admin-header">
+            <h1>Admin Management Panel</h1>
+            <p>Manage rooms, employees, and tournaments</p>
+            <div class="admin-stats" id="admin-stats">
+                <div class="stat-card">
+                    <h3 id="total-rooms">0</h3>
+                    <p>Total Rooms</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="active-rooms">0</h3>
+                    <p>Active Rooms</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="total-employees">0</h3>
+                    <p>Employees</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="admin-nav">
+            <button class="nav-btn active" data-section="rooms">
+                <i class="fas fa-door-open"></i> Room Management
+            </button>
+            <button class="nav-btn" data-section="employees">
+                <i class="fas fa-users"></i> Employees
+            </button>
+            <button class="nav-btn" data-section="dashboard">
+                <i class="fas fa-chart-bar"></i> Dashboard
+            </button>
+        </div>
+        
+        <!-- Room Management Section -->
+        <div class="admin-section active" id="rooms-section">
+            <div class="section-header">
+                <h2>Room Management</h2>
+                <p>Add custom rooms for different tournament tiers</p>
+                <button class="action-btn" id="bulk-add-btn">
+                    <i class="fas fa-layer-group"></i> Bulk Add Rooms
+                </button>
+            </div>
+            
+            <div class="form-card">
+                <h3>Add New Room</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="room-id">Room ID</label>
+                        <input type="text" id="room-id" placeholder="Enter Room ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="room-password">Room Password</label>
+                        <input type="text" id="room-password" placeholder="Enter Room Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="room-tier">Tournament Tier</label>
+                        <select id="room-tier">
+                            <option value="50">₹50 - Entry Level</option>
+                            <option value="100">₹100 - Pro Level</option>
+                            <option value="200">₹200 - Premium</option>
+                            <option value="500">₹500 - Elite</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="room-game">Game</label>
+                        <select id="room-game">
+                            <option value="freefire">Free Fire</option>
+                            <option value="bgmi">BGMI</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="submit-btn" id="add-room-btn">
+                    <i class="fas fa-plus"></i> Add Room
+                </button>
+            </div>
+            
+            <div class="rooms-list" id="admin-rooms-list">
+                <div class="loading-rooms">
+                    <div class="spinner"></div>
+                    <p>Loading rooms...</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Employee Management Section -->
+        <div class="admin-section" id="employees-section">
+            <div class="section-header">
+                <h2>Employee Management</h2>
+                <p>Add and manage staff members</p>
+            </div>
+            
+            <div class="form-card">
+                <h3>Add New Employee</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="employee-email">Email Address</label>
+                        <input type="email" id="employee-email" placeholder="Enter employee email">
+                    </div>
+                    <div class="form-group">
+                        <label for="employee-password">Password</label>
+                        <input type="password" id="employee-password" placeholder="Set password">
+                    </div>
+                    <div class="form-group">
+                        <label for="employee-name">Full Name</label>
+                        <input type="text" id="employee-name" placeholder="Enter full name">
+                    </div>
+                </div>
+                <button class="submit-btn" id="add-employee-btn">
+                    <i class="fas fa-user-plus"></i> Add Employee
+                </button>
+            </div>
+            
+            <div class="employees-list" id="employees-list">
+                <div class="loading-rooms">
+                    <div class="spinner"></div>
+                    <p>Loading employees...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div class="admin-section" id="dashboard-section">
+            <div class="section-header">
+                <h2>Dashboard Overview</h2>
+                <p>System statistics and analytics</p>
+            </div>
+            
+            <div class="dashboard-stats" id="dashboard-stats">
+                <!-- Stats will be loaded here -->
+            </div>
+            
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Rooms by Tier</h3>
+                    <div class="chart-container" id="tier-chart">
+                        <!-- Chart will be rendered here -->
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list" id="recent-activity">
+                        <!-- Activity will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulk Add Modal -->
+    <div class="modal" id="bulk-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Multiple Rooms</h3>
+                <button class="close-btn" id="close-bulk-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="bulk-prefix">Room Prefix</label>
+                        <input type="text" id="bulk-prefix" value="ELITE" placeholder="Room prefix">
+                    </div>
+                    <div class="form-group">
+                        <label for="bulk-count">Number of Rooms</label>
+                        <input type="number" id="bulk-count" value="5" min="1" max="20" placeholder="Number of rooms">
+                    </div>
+                    <div class="form-group">
+                        <label for="bulk-password">Password Pattern</label>
+                        <input type="text" id="bulk-password" value="123456" placeholder="Password pattern">
+                    </div>
+                    <div class="form-group">
+                        <label for="bulk-tier">Tier</label>
+                        <select id="bulk-tier">
+                            <option value="50">₹50 - Entry Level</option>
+                            <option value="100">₹100 - Pro Level</option>
+                            <option value="200">₹200 - Premium</option>
+                            <option value="500">₹500 - Elite</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bulk-game">Game</label>
+                        <select id="bulk-game">
+                            <option value="freefire">Free Fire</option>
+                            <option value="bgmi">BGMI</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="submit-btn" id="confirm-bulk-add">
+                        <i class="fas fa-plus"></i> Add Rooms
+                    </button>
+                    <button class="cancel-btn" id="cancel-bulk-add">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
