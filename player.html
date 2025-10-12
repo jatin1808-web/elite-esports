@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Dashboard - Elite eSports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">ELITE ESPORTS</div>
+                <div class="nav-links">
+                    <a href="#" class="nav-link active" data-page="home">Home</a>
+                    <a href="#" class="nav-link" data-page="freefire">Free Fire</a>
+                    <a href="#" class="nav-link" data-page="bgmi">BGMI</a>
+                    <div class="user-info">
+                        <div class="user-avatar" id="user-avatar">P</div>
+                        <span id="user-greeting">Welcome</span>
+                        <button class="logout-btn" id="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <div class="container">
+            <div class="hero">
+                <h1>ELITE ESPORTS</h1>
+                <p>Competitive Gaming Platform</p>
+                <div class="motivation-text">
+                    Join daily tournaments, compete with the best, and win amazing prizes. Your journey to becoming a champion starts here.
+                </div>
+                <button class="cta-button" data-page="freefire">View Tournaments</button>
+            </div>
+
+            <div class="game-selection">
+                <h2 class="section-title">Choose Your Game</h2>
+                <p class="section-subtitle">Select your battlefield and start competing</p>
+                
+                <div class="game-cards">
+                    <div class="game-card">
+                        <div class="game-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>FREE FIRE</h3>
+                        <p>Daily tournaments • 7-9 PM</p>
+                        <button class="cta-button" data-page="freefire">Play Now</button>
+                    </div>
+                    
+                    <div class="game-card">
+                        <div class="game-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>BGMI</h3>
+                        <p>Premium tournaments • Coming Soon</p>
+                        <button class="cta-button" data-page="bgmi">Coming Soon</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tournament-tiers">
+                <h2 class="section-title">Tournament Tiers</h2>
+                <p class="section-subtitle">Choose your challenge level</p>
+                
+                <div class="tier-cards">
+                    <div class="tier-card">
+                        <h3>ENTRY</h3>
+                        <div class="tier-price">₹50</div>
+                        <ul class="tier-features">
+                            <li><i class="fas fa-check"></i> ₹10 Per Kill</li>
+                            <li><i class="fas fa-check"></i> Custom Rooms</li>
+                            <li><i class="fas fa-check"></i> Basic Rewards</li>
+                        </ul>
+                        <button class="tier-button" data-page="freefire">Join Now</button>
+                    </div>
+                    
+                    <div class="tier-card">
+                        <h3>PRO</h3>
+                        <div class="tier-price">₹100</div>
+                        <ul class="tier-features">
+                            <li><i class="fas fa-check"></i> ₹25 Per Kill</li>
+                            <li><i class="fas fa-check"></i> Custom Rooms</li>
+                            <li><i class="fas fa-check"></i> Better Rewards</li>
+                        </ul>
+                        <button class="tier-button" data-page="freefire">Join Now</button>
+                    </div>
+                    
+                    <div class="tier-card premium">
+                        <div class="tier-badge">POPULAR</div>
+                        <h3>PREMIUM</h3>
+                        <div class="tier-price">₹200</div>
+                        <ul class="tier-features">
+                            <li><i class="fas fa-check"></i> ₹50 Per Kill</li>
+                            <li><i class="fas fa-check"></i> Custom Rooms</li>
+                            <li><i class="fas fa-check"></i> Premium Rewards</li>
+                        </ul>
+                        <button class="tier-button" data-page="freefire">Go Premium</button>
+                    </div>
+                    
+                    <div class="tier-card premium">
+                        <div class="tier-badge">ELITE</div>
+                        <h3>ELITE</h3>
+                        <div class="tier-price">₹500</div>
+                        <ul class="tier-features">
+                            <li><i class="fas fa-check"></i> ₹100 Per Kill</li>
+                            <li><i class="fas fa-check"></i> Custom Rooms</li>
+                            <li><i class="fas fa-check"></i> Elite Rewards</li>
+                        </ul>
+                        <button class="tier-button" data-page="freefire">Become Elite</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Fire Tournaments Page -->
+    <section id="freefire" class="page">
+        <div class="container">
+            <div class="page-header">
+                <h2 class="section-title">Free Fire Tournaments</h2>
+                <p class="section-subtitle">Daily 7-9 PM • Custom Rooms Added by Admins</p>
+                <button class="refresh-btn" id="refresh-rooms">
+                    <i class="fas fa-redo"></i> Refresh Rooms
+                </button>
+            </div>
+            
+            <div class="tournament-grid" id="freefire-rooms">
+                <div class="loading-rooms">
+                    <div class="spinner"></div>
+                    <p>Loading available rooms...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BGMI Tournaments Page -->
+    <section id="bgmi" class="page">
+        <div class="container">
+            <h2 class="section-title">BGMI Tournaments</h2>
+            <p class="section-subtitle">Coming Soon • Premium Experience</p>
+            
+            <div class="tournament-grid">
+                <div class="tournament-card">
+                    <div class="tournament-time">Coming Soon</div>
+                    <h3>BGMI Starter</h3>
+                    <div class="tournament-price">₹100</div>
+                    <div class="prize-pool">Total Prize: ₹1200</div>
+                    <div class="kill-reward">
+                        <span>Per Kill:</span>
+                        <span>₹25</span>
+                    </div>
+                    <p>Start your BGMI journey</p>
+                    <button class="join-button">Notify Me</button>
+                </div>
+                
+                <div class="tournament-card premium">
+                    <div class="tournament-time">Coming Soon</div>
+                    <h3>BGMI Elite</h3>
+                    <div class="tournament-price">₹1000</div>
+                    <div class="prize-pool">Total Prize: ₹12000</div>
+                    <div class="kill-reward">
+                        <span>Per Kill:</span>
+                        <span>₹300</span>
+                    </div>
+                    <p>The ultimate challenge</p>
+                    <button class="join-button">Get Notified</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="logo">ELITE ESPORTS</div>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">Terms</a>
+                <a href="#" class="footer-link">Privacy</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Support</a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2024 Elite eSports. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/player.js"></script>
+</body>
+</html>
